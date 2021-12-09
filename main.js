@@ -1,2 +1,7 @@
-var score = window.prompt("Input current score: ");
-alert("Your score isnt " + score+1 ); //this is a test
+
+function getInput() {
+    var score1 = document.getElementById("score-input");
+    var score = Number(score1.value);
+    console.log(score);
+};
+
