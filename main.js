@@ -1,17 +1,19 @@
 //this variable makes the json file irrelavant
 var jsn;
 
+
 function getInput() {
     //var checkouts = JSON.parse(jsn);
     defJsn();
     var score1 = document.getElementById("score-input");
     var score = Number(score1.value);
-    console.log(score);
+    //console.log(score);
     if (score <= 170) {
-    var stringtest = "S"+ String(score)
-    console.log(stringtest);
-    var test = "S100"
-    console.log(jsn.test);
+    var scorestring = "S"+ String(score)
+    //console.log(scorestring);
+    //console.log(jsn[0][scorestring]);
+    var checkout = jsn[0][scorestring];
+    alert("The checkout for " + String(score) + " is " + checkout);
     }else {alert("You can't checkout in one turn with that many points left, play a turn and then try again.")};
 };
 
