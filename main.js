@@ -7,10 +7,12 @@ function getResults() {
     var scoreInput = document.getElementById("score-input");
     var score = Number(scoreInput.value);
 
-    if (score <= 170 && score != 1) {
+    if (score <= 170 && score != 1 && score != 0) {
         getCheckout(score);
     }else if (score == 1) {
         alert("Sorry, you can't win without throwing a double or triple. Which would require you to have at least 2 points.");
+    }else if (score == 0) {
+        alert("If you have zero points, you have won already.");
     }else {
         alert("You can't checkout in one turn with that many points left, play a turn and then try again.");
     };
