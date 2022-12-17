@@ -1,25 +1,31 @@
-//this variable makes the json file irrelavant
 var jsn;
+var scoreInput = document.getElementById("score-input");
+var score;
 
+function getResults() {
+    defJson();
+    var scoreInput = document.getElementById("score-input");
+    var score = Number(scoreInput.value);
 
-function getInput() {
-    //var checkouts = JSON.parse(jsn);
-    defJsn();
-    var score1 = document.getElementById("score-input");
-    var score = Number(score1.value);
-    //console.log(score);
-    if (score <= 170) {
-    var scorestring = "S"+ String(score)
-    //console.log(scorestring);
-    //console.log(jsn[0][scorestring]);
-    var checkout = jsn[0][scorestring];
-    alert("The checkout for " + String(score) + " is " + checkout);
-    }else {alert("You can't checkout in one turn with that many points left, play a turn and then try again.")};
+    if (score <= 170 && score != 1) {
+        getCheckout(score);
+    }else if (score == 1) {
+        alert("Sorry, you can't win without throwing a double or triple. Which would require you to have at least 2 points.");
+    }else {
+        alert("You can't checkout in one turn with that many points left, play a turn and then try again.");
+    };
 };
 
-function defJsn() {
+function getCheckout(score) {
+    var scoreString = "S"+ String(score);
+    var checkout = jsn[scoreString];
+    alert("The checkout for " + String(score) + " is " + checkout);
+};
+
+function defJson() {
     //this just makes the main function cleaner
-    jsn = [{
+    //actually an object
+    jsn = {
         "S2": "D1",
         "S3": "1 D1",
         "S4": "D2",
@@ -189,6 +195,6 @@ function defJsn() {
         "S168": "No checkout",
         "S169": "No checkout",
         "S170": "T20 T20 Bull"
-        }];
+        };
 };
 
